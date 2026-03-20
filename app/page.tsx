@@ -51,14 +51,14 @@ export default function Home() {
 
             {/* Sidebar */}
             <motion.div
-              className="fixed top-0 left-0 h-full w-72 z-50"
-              initial={{ x: -300, opacity: 0 }}
+              className="fixed top-0 left-0 h-full w-full md:w-72 z-50"
+              initial={{ x: "-100%", opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              exit={{ x: -300, opacity: 0 }}
+              exit={{ x: "-100%", opacity: 0 }}
               transition={{ type: "spring", stiffness: 80 }}
             >
               <div className="h-full bg-white/5 backdrop-blur-2xl border-r border-white/10 p-6 flex flex-col">
-
+                
                 {/* Header */}
                 <div className="flex justify-between items-center mb-10">
                   <h2 className="text-lg font-bold bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
