@@ -5,6 +5,7 @@ import project1 from "../images/project/poliklinik/Screenshot (111).png";
 import project2 from "../images/project/maktab/Screenshot (107).png";
 import project3 from "../images/project/magang/Screenshot (106).png";
 import project4 from "../images/project/tiketing/Screenshot (112).png";
+import project5 from "../images/project/siakad/siakad1.png";
 
 export default function Projects() {
   const projects = [
@@ -32,31 +33,44 @@ export default function Projects() {
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project4,
     },
+    {
+      title: "Sistem Informasi Akademik",
+      desc: "Website untuk manajemen informasi akademik dan kegiatan akademik.",
+      tech: ["Laravel", "Blade", "Tailwind"],
+      image: project5,
+    },
   ];
 
-  // Parent variants untuk stagger effect
   const containerVariants = {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2, // jeda antar kartu 0.2 detik
+        staggerChildren: 0.2,
       },
     },
   };
 
-  // Variants untuk tiap kartu
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, rotate: -5 },
-    visible: { opacity: 1, y: 0, rotate: 0, transition: { duration: 0.6 } },
+    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   return (
-    <section id="projects" className="max-w-6xl mx-auto py-24 px-6">
-      <h2 className="text-3xl font-bold text-center mb-14">
+    <section id="projects" className="relative max-w-6xl mx-auto py-28 px-6">
+
+      {/* Background Glow */}
+      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
+      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+
+      <h2 className="text-3xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
         My Projects
       </h2>
 
-      {/* Parent motion div untuk stagger */}
       <motion.div
         className="grid md:grid-cols-3 gap-10"
         variants={containerVariants}
@@ -67,32 +81,51 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="group rounded-xl p-[1px] bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 hover:scale-105 transition"
-            variants={cardVariants} // anak ikut stagger
+            variants={cardVariants}
+            className="group relative rounded-2xl overflow-hidden"
           >
-            <div className="bg-gray-900 rounded-xl p-6 h-full">
-              <div className="overflow-hidden rounded-lg mb-5">
+            {/* Glow Border */}
+            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
+
+            {/* Card */}
+            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-full transition duration-500 group-hover:-translate-y-2">
+
+              {/* Image */}
+              <div className="relative overflow-hidden rounded-xl mb-4">
                 <img
                   src={project.image.src}
                   alt={project.title}
-                  className="w-full h-36 object-cover group-hover:scale-110 transition duration-500"
+                  className="w-full h-40 object-cover transform group-hover:scale-110 transition duration-700"
                 />
+
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                  <button className="px-4 py-2 bg-white text-black text-sm rounded-lg font-medium hover:bg-gray-200 transition">
+                    View Project
+                  </button>
+                </div>
               </div>
 
-              <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-400 text-sm mb-4">{project.desc}</p>
+              {/* Content */}
+              <h3 className="text-lg font-semibold mb-2 group-hover:text-white transition">
+                {project.title}
+              </h3>
 
-              <div className="flex flex-wrap gap-2 mb-4">
+              <p className="text-white text-sm mb-4">
+                {project.desc}
+              </p>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2">
                 {project.tech.map((tech, i) => (
-                  <span key={i} className="text-xs bg-gray-800 px-2 py-1 rounded">
+                  <span
+                    key={i}
+                    className="text-xs px-2 py-1 rounded-md bg-white/10 border border-white/10 hover:bg-blue-500/20 transition"
+                  >
                     {tech}
                   </span>
                 ))}
               </div>
-
-              <button className="text-blue-400 text-sm hover:text-blue-300">
-                View Project →
-              </button>
             </div>
           </motion.div>
         ))}
