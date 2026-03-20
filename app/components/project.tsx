@@ -1,14 +1,23 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
+import Image, { StaticImageData } from "next/image";
+
 import project1 from "../images/project/poliklinik/Screenshot (111).png";
 import project2 from "../images/project/maktab/Screenshot (107).png";
 import project3 from "../images/project/magang/Screenshot (106).png";
 import project4 from "../images/project/tiketing/Screenshot (112).png";
 import project5 from "../images/project/siakad/siakad1.png";
 
+interface Project {
+  title: string;
+  desc: string;
+  tech: string[];
+  image: StaticImageData; // Next.js image type
+}
+
 export default function Projects() {
-  const projects = [
+  const projects: Project[] = [
     {
       title: "Poliklinik Website",
       desc: "Website untuk manajemen poliklinik dengan fitur pendaftaran online.",
@@ -41,7 +50,7 @@ export default function Projects() {
     },
   ];
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -50,7 +59,7 @@ export default function Projects() {
     },
   };
 
-  const cardVariants = {
+  const cardVariants: Variants = {
     hidden: { opacity: 0, y: 60, scale: 0.9 },
     visible: {
       opacity: 1,
@@ -62,7 +71,6 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative max-w-6xl mx-auto py-28 px-6">
-
       {/* Background Glow */}
       <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
       <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
@@ -89,13 +97,14 @@ export default function Projects() {
 
             {/* Card */}
             <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-full transition duration-500 group-hover:-translate-y-2">
-
               {/* Image */}
-              <div className="relative overflow-hidden rounded-xl mb-4">
-                <img
-                  src={project.image.src}
+              <div className="relative overflow-hidden rounded-xl mb-4 h-40 w-full">
+                <Image
+                  src={project.image}
                   alt={project.title}
-                  className="w-full h-40 object-cover transform group-hover:scale-110 transition duration-700"
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className="transform group-hover:scale-110 transition duration-700"
                 />
 
                 {/* Overlay */}
@@ -111,9 +120,7 @@ export default function Projects() {
                 {project.title}
               </h3>
 
-              <p className="text-white text-sm mb-4">
-                {project.desc}
-              </p>
+              <p className="text-white text-sm mb-4">{project.desc}</p>
 
               {/* Tech Stack */}
               <div className="flex flex-wrap gap-2">
