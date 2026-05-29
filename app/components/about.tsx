@@ -31,8 +31,12 @@ export default function About() {
 
   const itemVariants = {
     hidden: { opacity: 0, y: 15 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
-  };
+    visible: { 
+      opacity: 1, 
+      y: 0, 
+      transition: { duration: 0.4, ease: "easeOut" } 
+    },
+  } as const;
 
   return (
     <section id="about" className="py-28 px-6 relative bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635]">
