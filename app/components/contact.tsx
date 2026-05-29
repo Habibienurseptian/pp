@@ -1,79 +1,148 @@
 "use client";
-import { FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { useState } from "react";
+import { 
+  SiLaravel, 
+  SiPhp, 
+  SiJavascript, 
+  SiTailwindcss, 
+  SiReact, 
+  SiNextdotjs, 
+  SiBootstrap, 
+  SiHtml5, 
+  SiCss,
+  SiPython
+} from "react-icons/si";
 import { motion } from "framer-motion";
 
 export default function Contact() {
-  const contacts = [
+  const [showAll, setShowAll] = useState(false);
+
+  const skills = [
     {
-      name: "Github",
-      icon: <FaGithub size={24} />,
-      url: "https://github.com/habibienurseptian",
-      color: "bg-gray-800 hover:bg-gray-700",
+      name: "Laravel",
+      icon: <SiLaravel size={28} />,
+      url: "https://laravel.com",
+      color: "bg-[#FFA6C9]",
     },
     {
-      name: "Facebook",
-      icon: <FaFacebook size={24} />,
-      url: "https://www.facebook.com/habibi.watsuke/",
-      color: "bg-blue-700 hover:bg-blue-600",
+      name: "PHP",
+      icon: <SiPhp size={28} />,
+      url: "https://www.php.net",
+      color: "bg-[#C084FC]",
     },
     {
-      name: "X",
-      icon: <FaXTwitter size={24} />,
-      url: "#",
-      color: "bg-black hover:bg-gray-800",
+      name: "JavaScript",
+      icon: <SiJavascript size={28} />,
+      url: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+      color: "bg-[#FDE047]",
     },
     {
-      name: "Instagram",
-      icon: <FaInstagram size={24} />,
-      url: "https://www.instagram.com/hbbenrsptn",
-      color: "bg-gradient-to-r from-[#833ab4] via-[#fd1d1d] to-[#fcb045] hover:from-[#833ab4]/90 hover:via-[#fd1d1d]/90 hover:to-[#fcb045]/90",
+      name: "Python",
+      icon: <SiPython size={28} />,
+      url: "https://www.python.org",
+      color: "bg-[#BFDBFE]",
+    },
+    {
+      name: "React",
+      icon: <SiReact size={28} />,
+      url: "https://react.dev",
+      color: "bg-[#BFDBFE]",
+    },
+    {
+      name: "Next.js",
+      icon: <SiNextdotjs size={28} />,
+      url: "https://nextjs.org",
+      color: "bg-[#A3E635]",
+    },
+    {
+      name: "Tailwind CSS",
+      icon: <SiTailwindcss size={28} />,
+      url: "https://tailwindcss.com",
+      color: "bg-[#FFA6C9]", 
+    },
+    {
+      name: "Bootstrap",
+      icon: <SiBootstrap size={28} />,
+      url: "https://getbootstrap.com",
+      color: "bg-[#C084FC]",
+    },
+    {
+      name: "HTML5",
+      icon: <SiHtml5 size={28} />,
+      url: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+      color: "bg-[#FDE047]",
+    },
+    {
+      name: "CSS",
+      icon: <SiCss size={28} />,
+      url: "https://developer.mozilla.org/en-US/docs/Web/CSS",
+      color: "bg-[#BFDBFE]",
     },
   ];
 
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: { opacity: 0, y: 50 }, 
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section id="contact" className="text-center py-24 px-6">
-      <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
+    <section id="contact" className="relative text-center py-28 px-6 bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635] overflow-hidden">
+      
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
 
-      <p className="text-gray-400 mb-8">
-        Feel free to reach out for collaborations or projects.
-      </p>
+      <div className="relative z-10 max-w-5xl mx-auto">
+        
+        <div className="inline-block bg-[#A3E635] border-4 border-black px-6 py-3 mb-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight text-black">
+            Tech Stack
+          </h2>
+        </div>
 
-      <motion.div
-        className="flex justify-center flex-wrap gap-6"
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-      >
-        {contacts.map((contact, index) => (
-          <motion.a
-            key={index}
-            href={contact.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={`flex flex-col items-center justify-center ${contact.color} text-white rounded-lg w-28 h-28 transition transform hover:scale-110`}
-            variants={cardVariants}
+        <p className="text-black font-bold text-sm md:text-base mb-12 max-w-md mx-auto bg-white p-3 border-2 border-black border-dashed">
+          Technologies and tools I use to build robust web applications.
+        </p>
+
+        <div className="flex justify-center flex-wrap gap-6 md:gap-8 max-w-3xl mx-auto">
+          {skills.map((skill, index) => {
+            if (!showAll && index > 3) return null;
+
+            return (
+              <motion.a
+                key={skill.name}
+                href={skill.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, ease: "easeOut" }}
+                whileHover={{ 
+                  translateY: "-4px", 
+                  translateX: "-4px",
+                  shadow: "10px_10px_0px_0px_rgba(0,0,0,1)" 
+                }}
+                whileTap={{ 
+                  translateY: "4px", 
+                  translateX: "4px",
+                  shadow: "2px_2px_0px_0px_rgba(0,0,0,1)" 
+                }}
+                className={`flex flex-col items-center justify-center ${skill.color} text-black border-4 border-black font-black uppercase tracking-wider w-28 h-28 md:w-32 md:h-32 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer`}
+              >
+                <div className="mb-2 md:mb-3 bg-white p-2 border-2 border-black rounded-none shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] text-black">
+                  {skill.icon}
+                </div>
+                <span className="text-[10px] md:text-xs font-black tracking-tight">{skill.name}</span>
+              </motion.a>
+            );
+          })}
+        </div>
+
+        <div className="mt-12">
+          <motion.button
+            onClick={() => setShowAll(!showAll)}
+            whileHover={{ translateY: "-2px", translateX: "-2px", shadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
+            whileTap={{ translateY: "2px", translateX: "2px", shadow: "2px_2px_0px_0px_rgba(0,0,0,1)" }}
+            className="bg-white border-4 border-black text-black font-black uppercase tracking-wider text-sm px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100"
           >
-            <div className="mb-2">{contact.icon}</div>
-            <span className="text-sm font-semibold">{contact.name}</span>
-          </motion.a>
-        ))}
-      </motion.div>
+            {showAll ? "Show Less" : "Show More"}
+          </motion.button>
+        </div>
+
+      </div>
     </section>
   );
 }

@@ -13,7 +13,8 @@ interface Project {
   title: string;
   desc: string;
   tech: string[];
-  image: StaticImageData; // Next.js image type
+  image: StaticImageData;
+  color: string; // Added dynamic neubrutalist card background colors
 }
 
 export default function Projects() {
@@ -23,30 +24,35 @@ export default function Projects() {
       desc: "Website untuk manajemen poliklinik dengan fitur pendaftaran online.",
       tech: ["Laravel", "Blade", "Bootstrap"],
       image: project1,
+      color: "bg-[#BFDBFE]", // Pastel Blue
     },
     {
       title: "Maktab App",
       desc: "Website untuk manajemen kegiatan maktab dengan fitur booking online.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project2,
+      color: "bg-[#FFA6C9]", // Pastel Pink
     },
     {
       title: "Project Magang",
       desc: "Project magang di Dinas Ketenagakerjaan dengan fokus pada pengembangan LMS.",
       tech: ["Laravel", "Blade", "Bootstrap"],
       image: project3,
+      color: "bg-[#A3E635]", // Neo Mint/Lime
     },
     {
       title: "Tiketing Website",
       desc: "Website tiketing untuk booking event dan konser.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project4,
+      color: "bg-[#FDE047]", // Pastel Yellow
     },
     {
       title: "Sistem Informasi Akademik",
       desc: "Website untuk manajemen informasi akademik dan kegiatan akademik.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project5,
+      color: "bg-[#C084FC]", // Pastel Purple
     },
   ];
 
@@ -54,80 +60,84 @@ export default function Projects() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.15,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 60, scale: 0.9 },
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
       y: 0,
-      scale: 1,
-      transition: { duration: 0.6, ease: "easeOut" },
+      transition: { duration: 0.4, ease: "easeOut" },
     },
   };
 
   return (
-    <section id="projects" className="relative max-w-6xl mx-auto py-28 px-6">
-      {/* Background Glow */}
-      <div className="absolute top-10 left-10 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+    <section id="projects" className="relative min-h-screen bg-[#F0F0F0] text-black font-mono py-28 px-6 overflow-hidden">
+      
+      {/* Neubrutalist Grid Layer */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
 
-      <h2 className="text-3xl font-bold text-center mb-16 bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
-        My Projects
-      </h2>
+      {/* Header Container */}
+      <div className="text-center mb-20 relative z-10">
+        <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight text-black bg-white inline-block border-4 border-black px-6 py-3 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
+          My Projects
+        </h2>
+      </div>
 
       <motion.div
-        className="grid md:grid-cols-3 gap-10"
+        className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto relative z-10"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        viewport={{ once: true, amount: 0.1 }}
       >
         {projects.map((project, index) => (
           <motion.div
             key={index}
             variants={cardVariants}
-            className="group relative rounded-2xl overflow-hidden"
+            className="flex"
           >
-            {/* Glow Border */}
-            <div className="absolute inset-0 bg-gradient-to-r from-purple-500 via-blue-500 to-cyan-400 opacity-0 group-hover:opacity-100 blur-xl transition duration-500"></div>
-
-            {/* Card */}
-            <div className="relative bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-5 h-full transition duration-500 group-hover:-translate-y-2">
-              {/* Image */}
-              <div className="relative overflow-hidden rounded-xl mb-4 h-40 w-full">
+            {/* Card Outer Structure */}
+            <div className={`relative flex flex-col w-full bg-white border-4 border-black p-5 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-4px] hover:translate-y-[-4px] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] transition-all duration-200`}>
+              
+              {/* Image Border wrapper */}
+              <div className="relative overflow-hidden border-4 border-black mb-5 h-48 w-full bg-slate-200">
                 <Image
                   src={project.image}
                   alt={project.title}
                   fill
+                  sizes="(max-w-768px) 100vw, 33vw"
                   style={{ objectFit: "cover" }}
-                  className="transform group-hover:scale-110 transition duration-700"
+                  className="grayscale hover:grayscale-0 contrast-115 transition duration-300"
                 />
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
-                  <button className="px-4 py-2 bg-white text-black text-sm rounded-lg font-medium hover:bg-gray-200 transition">
-                    View Project
-                  </button>
+                {/* Hard Brutalist Image Label Overlay on Hover */}
+                <div className="absolute bottom-3 left-3 bg-black text-white text-xs font-black uppercase tracking-wider px-3 py-1 border-2 border-white shadow-[2px_2px_0px_0px_rgba(255,255,255,1)]">
+                  {project.tech[0]} APP
                 </div>
               </div>
 
-              {/* Content */}
-              <h3 className="text-lg font-semibold mb-2 group-hover:text-white transition">
-                {project.title}
-              </h3>
+              {/* Title Header with custom color banner background */}
+              <div className={`${project.color} border-2 border-black p-2 mb-3 inline-block self-start shadow-[3px_3px_0px_0px_rgba(0,0,0,1)]`}>
+                <h3 className="text-lg font-black uppercase tracking-tight text-black">
+                  {project.title}
+                </h3>
+              </div>
 
-              <p className="text-white text-sm mb-4">{project.desc}</p>
+              {/* Project Description */}
+              <p className="text-black font-medium text-sm mb-6 flex-grow leading-relaxed">
+                {project.desc}
+              </p>
 
-              {/* Tech Stack */}
-              <div className="flex flex-wrap gap-2">
+              {/* Tech Stack Footer Area */}
+              <div className="flex flex-wrap gap-2 pt-4 border-t-2 border-black border-dashed mt-auto">
                 {project.tech.map((tech, i) => (
                   <span
                     key={i}
-                    className="text-xs px-2 py-1 rounded-md bg-white/10 border border-white/10 hover:bg-blue-500/20 transition"
+                    className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 bg-white text-black border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-black hover:text-white transition-colors duration-150"
                   >
                     {tech}
                   </span>

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import profileImage from "../images/ph.jpeg";
 
 export default function About() {
-  // Typed text hanya untuk judul
   const fullText = "About Me";
 
   const descriptionLines = [
@@ -23,68 +22,65 @@ export default function About() {
     return () => clearInterval(interval);
   }, []);
 
-  // Variants untuk animasi
   const containerVariants = {
     hidden: {},
     visible: {
-      transition: { staggerChildren: 0.2 },
+      transition: { staggerChildren: 0.15 },
     },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
   };
 
   return (
-    <section id="about" className="py-28 px-6 relative">
-      {/* Background Glow */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-purple-500/20 blur-3xl rounded-full"></div>
-      <div className="absolute bottom-10 right-10 w-72 h-72 bg-blue-500/20 blur-3xl rounded-full"></div>
+    <section id="about" className="py-28 px-6 relative bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635]">
+      
+      {/* Consistent Neubrutalist Grid Layer */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
 
-      <div className="max-w-6xl mx-auto backdrop-blur-lg bg-white/5 border border-white/10 rounded-2xl p-10 flex flex-col md:flex-row gap-12 shadow-2xl">
+      <div className="max-w-6xl mx-auto relative bg-white border-4 border-black p-8 md:p-12 flex flex-col md:flex-row gap-12 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-10">
 
-        {/* Profile + Passion Text */}
-        <div className="flex flex-col items-center md:items-center">
-          <div className="relative group border-loop">
-            <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 to-blue-500 rounded-xl blur opacity-60 group-hover:opacity-100 transition"></div>
-
-            <div className="relative w-48 aspect-[3/4]">
+        {/* Profile + Passion Card Side */}
+        <div className="flex flex-col items-center">
+          <div className="relative group bg-[#FFA6C9] border-4 border-black p-4 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-all duration-200">
+            <div className="relative w-48 aspect-[3/4] border-4 border-black overflow-hidden bg-gray-200">
               <img
                 src={profileImage.src}
                 alt="Profile"
-                className="w-full h-full object-cover rounded-xl border border-white/10 group-hover:scale-105 transition duration-500"
+                className="w-full h-full object-cover grayscale contrast-125 group-hover:grayscale-0 transition duration-300"
               />
             </div>
           </div>
 
-          {/* Animated Passion Text */}
+          {/* Animated Passion Text Block */}
           <motion.div
-            className="text-gray-400 mt-4 text-center max-w-xs space-y-2"
+            className="text-black mt-6 text-center max-w-xs bg-yellow-300 border-4 border-black p-4 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            <motion.p variants={itemVariants}>
+            <motion.p variants={itemVariants} className="text-xs uppercase tracking-wider leading-relaxed">
               Passionate Web Developer who loves building modern web experiences and solving real problems with code.
             </motion.p>
           </motion.div>
         </div>
 
-        {/* Content */}
-        <div className="flex-1 space-y-10">
+        {/* Biography & Timeline Content Side */}
+        <div className="flex-1 space-y-12">
 
-          {/* About Title */}
-          <div>
-            <h2 className="text-3xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-blue-400 text-transparent bg-clip-text">
+          {/* About Title & Bio Card */}
+          <div className="bg-[#A3E635] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+            <h2 className="text-3xl md:text-4xl font-black uppercase tracking-tight inline-block bg-white border-2 border-black px-4 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] transform -rotate-1">
               {typedTitle}
-              <span className="inline-block w-1 h-5 bg-gray-400 ml-1 animate-pulse"></span>
+              <span className="inline-block w-2 h-6 bg-black ml-1.5 animate-ping"></span>
             </h2>
 
-            {/* Animated Description (NEW) */}
+            {/* Animated Description */}
             <motion.div
-              className="space-y-2 text-gray-400 leading-relaxed text-justify"
+              className="space-y-2 text-black font-semibold mt-4 text-base leading-relaxed text-justify"
               variants={containerVariants}
               initial="hidden"
               whileInView="visible"
@@ -98,42 +94,44 @@ export default function About() {
             </motion.div>
           </div>
 
-          {/* Timeline */}
+          {/* Timeline Section */}
           <motion.div
-            className="grid md:grid-cols-2 gap-10"
+            className="grid md:grid-cols-2 gap-8"
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* Education */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold mb-6 text-purple-400">🎓 Education</h3>
-              <div className="relative border-l border-purple-500/40 pl-6 space-y-6">
-                <motion.div variants={itemVariants}>
-                  <div className="absolute -left-[7px] w-3 h-3 bg-purple-500 rounded-full"></div>
-                  <h4 className="font-semibold">S1 Teknik Informatika</h4>
-                  <p className="text-sm text-gray-400">
+            {/* Education Brutalist Card */}
+            <motion.div variants={itemVariants} className="bg-[#BFDBFE] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className="text-xl font-black mb-6 uppercase border-b-4 border-black pb-2 flex items-center gap-2">
+                <span>🎓</span> Education
+              </h3>
+              <div className="space-y-6">
+                <div className="relative pl-4 border-l-4 border-black">
+                  <h4 className="font-black text-lg uppercase">S1 Teknik Informatika</h4>
+                  <p className="text-sm font-bold bg-white inline-block border border-black px-2 my-1">
                     Universitas Dian Nuswantoro • 2022 - Now
                   </p>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
 
-            {/* Experience */}
-            <motion.div variants={itemVariants}>
-              <h3 className="text-xl font-semibold mb-6 text-blue-400">💼 Experience</h3>
-              <div className="relative border-l border-blue-500/40 pl-6 space-y-6">
-                <motion.div variants={itemVariants}>
-                  <div className="absolute -left-[7px] w-3 h-3 bg-blue-500 rounded-full"></div>
-                  <h4 className="font-semibold">Internship</h4>
-                  <p className="text-sm text-gray-400">
+            {/* Experience Brutalist Card */}
+            <motion.div variants={itemVariants} className="bg-[#C084FC] border-4 border-black p-6 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]">
+              <h3 className="text-xl font-black mb-6 uppercase border-b-4 border-black pb-2 flex items-center gap-2">
+                <span>💼</span> Experience
+              </h3>
+              <div className="space-y-6">
+                <div className="relative pl-4 border-l-4 border-black">
+                  <h4 className="font-black text-lg uppercase">Internship</h4>
+                  <p className="text-sm font-bold bg-white inline-block border border-black px-2 my-1">
                     Dinas Ketenagakerjaan Kota Semarang • Juli 2025 - September 2025
                   </p>
-                  <p className="text-sm text-gray-500">
-                    Mengembangkan aplikasi web menggunakan Laravel, Blade, dan Bootstrap CSS.
+                  <p className="text-sm font-medium mt-2 bg-white/60 p-2 border-2 border-black border-dashed leading-relaxed">
+                    Mengembangkan aplikasi web learning management system menggunakan Laravel, Blade, dan Bootstrap CSS.
                   </p>
-                </motion.div>
+                </div>
               </div>
             </motion.div>
           </motion.div>
