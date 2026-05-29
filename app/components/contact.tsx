@@ -113,12 +113,12 @@ export default function Contact() {
                 whileHover={{ 
                   translateY: "-4px", 
                   translateX: "-4px",
-                  shadow: "10px_10px_0px_0px_rgba(0,0,0,1)" 
+                  boxShadow: "10px_10px_0px_0px_rgba(0,0,0,1)" 
                 }}
                 whileTap={{ 
                   translateY: "4px", 
                   translateX: "4px",
-                  shadow: "2px_2px_0px_0px_rgba(0,0,0,1)" 
+                  boxShadow: "2px_2px_0px_0px_rgba(0,0,0,1)" 
                 }}
                 className={`flex flex-col items-center justify-center ${skill.color} text-black border-4 border-black font-black uppercase tracking-wider w-28 h-28 md:w-32 md:h-32 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer`}
               >
@@ -134,8 +134,8 @@ export default function Contact() {
         <div className="mt-12">
           <motion.button
             onClick={() => setShowAll(!showAll)}
-            whileHover={{ translateY: "-2px", translateX: "-2px", shadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
-            whileTap={{ translateY: "2px", translateX: "2px", shadow: "2px_2px_0px_0px_rgba(0,0,0,1)" }}
+            whileHover={{ translateY: "-2px", translateX: "-2px", boxShadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
+            whileTap={{ translateY: "2px", translateX: "2px", boxShadow: "2px_2px_0px_0px_rgba(0,0,0,1)" }}
             className="bg-white border-4 border-black text-black font-black uppercase tracking-wider text-sm px-6 py-3 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100"
           >
             {showAll ? "Show Less" : "Show More"}

@@ -36,8 +36,8 @@ function Footer() {
               href="https://github.com/habibienurseptian"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ translateY: "-2px", translateX: "-2px", shadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
-              whileTap={{ translateY: "2px", translateX: "2px", shadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
+              whileHover={{ translateY: "-2px", translateX: "-2px", boxShadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
+              whileTap={{ translateY: "2px", translateX: "2px", boxShadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
               className="p-3 bg-[#BFDBFE] text-black border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer"
             >
               <FaGithub />
@@ -47,8 +47,8 @@ function Footer() {
               href="#"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ translateY: "-2px", translateX: "-2px", shadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
-              whileTap={{ translateY: "2px", translateX: "2px", shadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
+              whileHover={{ translateY: "-2px", translateX: "-2px", boxShadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
+              whileTap={{ translateY: "2px", translateX: "2px", boxShadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
               className="p-3 bg-[#C084FC] text-black border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer"
             >
               <FaLinkedin />
@@ -58,8 +58,8 @@ function Footer() {
               href="https://www.instagram.com/hbbenrsptn"
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ translateY: "-2px", translateX: "-2px", shadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
-              whileTap={{ translateY: "2px", translateX: "2px", shadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
+              whileHover={{ translateY: "-2px", translateX: "-2px", boxShadow: "6px_6px_0px_0px_rgba(0,0,0,1)" }}
+              whileTap={{ translateY: "2px", translateX: "2px", boxShadow: "1px_1px_0px_0px_rgba(0,0,0,1)" }}
               className="p-3 bg-[#FFA6C9] text-black border-4 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer"
             >
               <FaInstagram />

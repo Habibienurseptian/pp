@@ -66,12 +66,12 @@ export default function Hero() {
             whileHover={{ 
               translateY: "-4px", 
               translateX: "-4px",
-              shadow: "12px_12px_0px_0px_rgba(0,0,0,1)" 
+              boxShadow: "12px_12px_0px_0px_rgba(0,0,0,1)" 
             }}
             whileTap={{ 
               translateY: "4px", 
               translateX: "4px",
-              shadow: "2px_2px_0px_0px_rgba(0,0,0,1)" 
+              boxShadow: "2px_2px_0px_0px_rgba(0,0,0,1)" 
             }}
             className="inline-flex items-center bg-[#A3E635] text-black text-lg font-black uppercase tracking-wider px-8 py-4 border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] transition-shadow duration-100 cursor-pointer"
           >

@@ -14,7 +14,7 @@ interface Project {
   desc: string;
   tech: string[];
   image: StaticImageData;
-  color: string; // Added dynamic neubrutalist card background colors
+  color: string;
 }
 
 export default function Projects() {
@@ -24,35 +24,35 @@ export default function Projects() {
       desc: "Website untuk manajemen poliklinik dengan fitur pendaftaran online.",
       tech: ["Laravel", "Blade", "Bootstrap"],
       image: project1,
-      color: "bg-[#BFDBFE]", // Pastel Blue
+      color: "bg-[#BFDBFE]",
     },
     {
       title: "Maktab App",
       desc: "Website untuk manajemen kegiatan maktab dengan fitur booking online.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project2,
-      color: "bg-[#FFA6C9]", // Pastel Pink
+      color: "bg-[#FFA6C9]",
     },
     {
       title: "Project Magang",
       desc: "Project magang di Dinas Ketenagakerjaan dengan fokus pada pengembangan LMS.",
       tech: ["Laravel", "Blade", "Bootstrap"],
       image: project3,
-      color: "bg-[#A3E635]", // Neo Mint/Lime
+      color: "bg-[#A3E635]",
     },
     {
       title: "Tiketing Website",
       desc: "Website tiketing untuk booking event dan konser.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project4,
-      color: "bg-[#FDE047]", // Pastel Yellow
+      color: "bg-[#FDE047]",
     },
     {
       title: "Sistem Informasi Akademik",
       desc: "Website untuk manajemen informasi akademik dan kegiatan akademik.",
       tech: ["Laravel", "Blade", "Tailwind"],
       image: project5,
-      color: "bg-[#C084FC]", // Pastel Purple
+      color: "bg-[#C084FC]",
     },
   ];
 
