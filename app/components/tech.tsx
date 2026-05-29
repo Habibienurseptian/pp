@@ -81,7 +81,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="relative text-center py-28 px-6 bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635] overflow-hidden">
+    <section id="tech" className="relative text-center py-28 px-6 bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635] overflow-hidden">
       
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
 

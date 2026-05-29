@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Projects from "./components/project";
-import Contacts from "./components/contact";
+import Techs from "./components/tech";
 import Abouts from "./components/about";
 import Heroes from "./components/hero";
 import Footer from "./components/footer";
@@ -31,8 +31,8 @@ export default function Home() {
           <a href="#projects" className="bg-white hover:bg-[#A3E635] text-black font-bold uppercase text-sm border-2 border-black px-4 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
             Projects
           </a>
-          <a href="#contact" className="bg-white hover:bg-[#A3E635] text-black font-bold uppercase text-sm border-2 border-black px-4 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
-            Contact
+          <a href="#tech" className="bg-white hover:bg-[#A3E635] text-black font-bold uppercase text-sm border-2 border-black px-4 py-1.5 shadow-[3px_3px_0px_0px_rgba(0,0,0,1)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[1px] active:translate-y-[1px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all">
+            Tech
           </a>
         </div>
 
@@ -92,11 +92,11 @@ export default function Home() {
             Projects
           </a>
           <a
-            href="#contact"
+            href="#tech"
             onClick={() => setMenuOpen(false)}
             className="bg-white border-4 border-black p-3 font-black uppercase tracking-wider text-center text-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all"
           >
-            Contact
+            Tech
           </a>
         </div>
 
@@ -114,7 +114,7 @@ export default function Home() {
       <Heroes />
       <Abouts />
       <Projects />
-      <Contacts />
+      <Techs />
       <Footer />
     </main>
   );
