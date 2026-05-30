@@ -85,7 +85,7 @@ export default function Contact() {
       className="relative text-center py-20 md:py-28 bg-[#F0F0F0] text-black font-mono selection:bg-[#A3E635] overflow-hidden"
     >
       {/* Consistent Neubrutalist Grid Layer */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:3rem_3rem] md:bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#000000_1px,transparent_1px),linear-gradient(to_bottom,#000000_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-[0.05] pointer-events-none"></div>
 
       <div className="relative z-10 w-full mx-auto">
         {/* Section Title */}
