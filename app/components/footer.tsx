@@ -77,7 +77,7 @@ function Footer() {
           <div className="flex gap-6">
             <a href="#about" className="hover:bg-[#A3E635] px-2 py-0.5 border border-transparent hover:border-black transition-all">About</a>
             <a href="#projects" className="hover:bg-[#A3E635] px-2 py-0.5 border border-transparent hover:border-black transition-all">Projects</a>
-            <a href="#contact" className="hover:bg-[#A3E635] px-2 py-0.5 border border-transparent hover:border-black transition-all">Contact</a>
+            <a href="#tech" className="hover:bg-[#A3E635] px-2 py-0.5 border border-transparent hover:border-black transition-all">Tech Stack</a>
           </div>
         </div>
 
