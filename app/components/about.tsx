@@ -94,7 +94,7 @@ export default function About() {
             <div className="relative pl-3 border-l-4 border-black">
               <h4 className="font-black text-base uppercase tracking-tight">S1 Teknik Informatika</h4>
               <p className="text-[11px] font-bold bg-white inline-block border border-black px-2 py-0.5 my-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                UDINUS • 2022 - Now
+                UDINUS | 2022 - Now
               </p>
               <p className="text-xs font-medium mt-1 bg-white/70 p-2 border-2 border-black border-dashed leading-relaxed">
                 Mempelajari rekayasa perangkat lunak, struktur data, dan pengembangan aplikasi enterprise.
@@ -110,9 +110,9 @@ export default function About() {
               <span>💼</span> Experience
             </h3>
             <div className="relative pl-3 border-l-4 border-black">
-              <h4 className="font-black text-base uppercase tracking-tight">Web Intern</h4>
+              <h4 className="font-black text-base uppercase tracking-tight">Intern</h4>
               <p className="text-[11px] font-bold bg-white inline-block border border-black px-2 py-0.5 my-1.5 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]">
-                Disnaker • 2025
+                Disnaker Kota Semarang | Juli 2025 - September 2025
               </p>
               <p className="text-xs font-medium mt-1 bg-white/70 p-2 border-2 border-black border-dashed leading-relaxed">
                 Mengembangkan aplikasi web Learning Management System (LMS) menggunakan Laravel dan Bootstrap CSS.
